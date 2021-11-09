@@ -1,5 +1,5 @@
 /images
 /music
-/styles_in_env/images
-/styles_in_env/music
+/static_in_env/images
+/static_in_env/music
 /db.sqlite3
