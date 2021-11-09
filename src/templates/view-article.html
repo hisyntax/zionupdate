@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% include 'nav2.html' %}
+  <div class="article-view-container">
+    <img src="{{ article.thumbnail.url }}" alt="" class="article-image">
+    <h1 class="article-view-title">The journey in the spiritual realm</h1>
+    <p class="article-view-details">
+      <span class="b">Author:</span> Admin
+      <span class="b">Time: </span>{{ article.timestamp|timesince }} ago
+    </p>
+    <div class="article-view-content">
+    {{ article.overview }}
+    </div>
+  </div>
+  <div class="related-header">
+    <h2>Lattest Articles</h2>
+  </div>
+  <div class="article-list">
+    {% for obj in lattest_article %}
+    <div class="article">
+      <img src="{{ obj.thumbnail.url }}" alt="">
+      <div class="article-title">
+        <h2>{{ obj.title }}</h2>
+        <p class="article-by">Admin</p>
+        <p class="article-by">{{ obj.timestamp | timesince }} ago</p>
+        <p class="sermon-preview">{{ obj.overview | truncatechars:200}}</p>
+        <a href="{{ obj.get_absolute_url }}">Read full article</a>
+      </div>
+      <div class="article-tag-container">
+        {% for cat in obj.category.all %}
+        <div class="article-tag">{{ cat }}</div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+{% endblock content %}

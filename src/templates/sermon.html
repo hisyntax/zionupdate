@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'nav2.html' %}
+  <div class="welcome">
+    <h1>Sermons</h1>
+  </div>
+  <div class="sermon-cat-list">
+    <h2>Sermon by Category</h2>
+    <div class="sermon-cat-item"><a href="sermon/category/intimacy">Intimacy</a> <span>{{intimacy_count}}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/relationship">Relationship</a> <span>{{ relationhip_count }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/academic">Academic</a> <span>{{ academic_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/marriage">Marriage</a> <span>{{ marriage_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/revival">Revival</a> <span>{{ revival_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/annointing">Annointing</a> <span>{{ annointing_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/wealth">Wealth</a> <span>{{ wealth_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/kingdom-lifestyle">Kingdom Lifestyle</a> <span>{{ kingdom_lifestyle_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/mind-development">Mind Development</a> <span>{{ mind_development_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/holy-spirit">Holy Spirit</a> <span>{{ holy_spirit_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/leadership">Leadership</a> <span>{{ leadership_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/character">Character</a> <span>{{ character_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/prayer">Prayer</a> <span>{{ prayer_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/singleness">Singleness</a> <span>{{ singleness_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/blessing">Blessing</a> <span>{{ blessing_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/mantle">Mantle</a> <span>{{ mantle_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/overcoming-addiction">Overcoming Addiction</a> <span>{{ overcoming_addiction_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/category/others">Others</a> <span>{{ others_counter }}</span></div>
+  </div>
+  <div class="sermon-cat-list">
+    <h2>Sermon by Minister</h2>
+    <div class="sermon-cat-item"><a href="sermon/minister/apostle-joshua-selman">Apostle Joshua Selman Nimmak</a> <span>{{ apostle_joshua_selman_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/minister/apostle-arome-osayi">Apostle Arome Osayi</a> <span>{{ apostle_arome_osayi_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/minister/apostle-micheal-orokpo">Apostle Micheal Orokpo</a> <span>{{ apostle_micheal_orokpo_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/minister/bishop-david-oyedepo">Bishop David Oyedepo</a> <span>{{ bidhop_david_oyedepo_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/minister/dr-paul-eneche">Pastor Dr. Paul Enenche</a> <span>{{ dr_paul_eneche_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/minister/bro-gbile-akani">Bro GBile Akani</a> <span>{{ bro_gbile_akani_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/minister/pastor-kingsley-okonkwo">Pastor Kingsley Okonkwo</a> <span>{{ pastor_kingsley_okonkwo_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/minister/pastor-jerry-eze">Pastor Jerry Eze</a> <span>{{ pastor_jerry_eze_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/minister/pastor-ejimi">Pastor Ejemi</a> <span>{{ pastor_ejemi_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/minister/bishop-david-ibieyomie">Bishop David Ibieyomie</a> <span>{{ bishop_david_ibieyomie_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/minister/apostle-johnson-sulaiman">Apostle Johnson Sulaiman</a> <span>{{ apostle_johnson_sulaiman_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/minister/pastor-adeboye">Pastor E.A Adeboye</a> <span>{{ pastor_adeboye_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/minister/pastor-sam-adeyemi">Pastor Sam Adeyemi</a> <span>{{ pastor_sam_adeyemi_counter }}</span></div>
+    <div class="sermon-cat-item"><a href="sermon/minister/pastor-chris-oyakhilome">Pastor Chris Oyakhilome</a> <span>{{ pastor_chris_oyakhilome_counter }}</span></div>
+    <!-- <div class="sermon-cat-item"><a href="./sermon-category.html">Others</a> <span>483</span></div> -->
+  </div>
+  <!-- <div class="sermon-cat-list">
+    <h2>Sermon by Churches</h2>
+    <div class="sermon-cat-item"><a href="./sermon-category.html">Intimacy</a> <span>483</span></div>
+    <div class="sermon-cat-item"><a href="./sermon-category.html">Holy Spirit</a> <span>483</span></div>
+    <div class="sermon-cat-item"><a href="./sermon-category.html">Marrage</a> <span>483</span></div>
+    <div class="sermon-cat-item"><a href="./sermon-category.html">Minister of God</a> <span>483</span></div>
+  </div> -->
+{% endblock content %}

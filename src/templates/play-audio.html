@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% include 'nav2.html' %}
+  <div class="audio-container">
+    <audio id="my-audio">
+      <source src="{{ song.song.url }}" />
+    </audio>
+    <div class="audio-thumbnail">
+      <img src="{{ song.thumbnail.url }}" alt="audio-image" />
+    </div>
+    <div class="audio-controls">
+      <div class="duration">
+        <div class="duration-bar" id="duration-bar">
+          <div class="duration-fill-abstract" id="abstract-fill"></div>
+          <div class="duration-fill" id="duration-fill"></div>
+        </div>
+        <div class="end">
+          <span id="start">0:00</span> /
+          <span id="end">0:00</span>
+        </div>
+      </div>
+      <div class="audio-state-container">
+        <div class="pause-play">
+          <i class="fas fa-play" id="play"></i><i class="fas fa-pause" id="pause"></i>
+        </div>
+        <div class="volume">
+          <div>
+            <i class="fas fa-volume-up" id="volume-icon"></i>
+            <span id="volume-percent">0%</span>
+          </div>
+          <div class="volume-bar" id="volume-bar">
+            <div class="volume-guage" id="volume-guage"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="audio-description">
+      <h2 class="audio-title">
+        {{ song.title }}
+        <a href="{{ song.song.url }}" class="audio-download" download="">Download</a>
+      </h2>
+      <p>
+        <span class="b">Posted by: </span> Admin
+        <span class="b">On: </span>
+        {{ song.timestamp|timesince }} ago
+      </p>
+    </div>
+  </div>
+  <div class="related-header">
+  <h2>Lattest Songs</h2>
+</div>
+<div class="songs-list">
+  {% for obj in lattest_song %}
+  <div class="song">
+    <div class="song-image">
+      <div class="image-cover">
+        <div class="playing-effect"></div>
+        <div class="play-effect-icon"><i class="fas fa-play"></i></div>
+      </div>
+      <img src="{{ obj.thumbnail.url }}" alt="song-image" />
+    </div>
+    <div class="song-details">
+      <p class="song-title">{{ obj.title }}</p>
+      {% for minister in obj.minister.all %}
+      <p class="song-by"><span class="b"> Minister:</span> {{ minister }}</p>
+      {% endfor %}
+    </div>
+    <div class="song-controls">
+      <div class="pause-play">
+        <div class="pause-play">
+          <button class="pause"><i class="fas fa-pause"></i></button>
+          <button class="play"><i class="fas fa-play"></i></button>
+        </div>
+      </div>
+      <div class="download">
+        <a href="{{ obj.song.url }}" download><i class="fas fa-download"></i></a>
+      </div>
+    </div>
+    <audio>
+      <source src="{{ obj.song.url }}" />
+    </audio>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}

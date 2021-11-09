@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'nav2.html' %}
+    <div class="welcome">
+        <h1>Articles</h1>
+    </div>
+    <div class="sermon-cat-list">
+      {% for i in queryset %}
+        <div class="sermon-cat-item">
+            <div>
+                <a href="{{ i.get_absolute_url }}">
+                    <h2>{{ i.title }}</h2>
+                    <p>{{ i.overview|truncatechars:200 }}</p>
+                </a>
+                <p class="time">{{ i.timestamp|timesince }} ago</p>
+                <p class="by">Admin</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="page-nav">
+        {% if queryset.has_previous %}
+        <a href="?{{ page_request_var }}={{ queryset.previous_page_number }}" class="np-button">Prev</a>
+        {% endif %}
+        <div class="current-page">{{ queryset.number }}</div>
+        {% if queryset.has_next %}
+        <a href="?{{ page_request_var }}={{ queryset.next_page_number }}" class="np-button">Next</a>
+        {% endif %}
+    </div>
+{% endblock content %}

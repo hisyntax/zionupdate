@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'nav2.html' %}
+    <div class="welcome">
+        <h1>Academic</h1>
+    </div>
+    <div class="sermon-cat-list">
+        {% for sermon in queryset %}
+        <div class="sermon-cat-item">
+            <div>
+                <a href="{{ sermon.get_absolute_url }}">
+                    <h2>{{ sermon.title }}</h2>
+                    <p>{{ sermon.overview|truncatechars:70 }}</p>
+                </a>
+                {% for minister in sermon.minister.all %}
+                <p class="by">{{ minister }}</p>
+                {% endfor %}
+            </div>
+            {% for tag in sermon.tag.all %}
+            <div class="cat-tag">
+                <div>{{tag}}</div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="page-nav">
+        {% if queryset.has_previous %}
+        <a href="?{{ page_request_var }}={{ queryset.previous_page_number }}" class="np-button">Prev</a>
+        {% endif %}
+        <div class="current-page">{{ queryset.number }}</div>
+        {% if queryset.has_next %}
+        <a href="?{{ page_request_var }}={{ queryset.next_page_number }}" class="np-button">Next</a>
+        {% endif %}
+    </div>
+{% endblock content %}

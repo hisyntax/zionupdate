@@ -1,0 +1,25 @@
+<nav>
+    <div class="static-search">
+      <form action="{% url 'search' %}">
+        <input type="text" name="q" placeholder="Search for Sermons and Article here ..." />
+        <button type="submit" class="static-search-icon"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+    <div class="logo">
+      <p>ZC</p>
+    </div>
+    <div class="right-nav">
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/sermon">Sermons</a>
+        <a href="/song">Songs</a>
+        <a href="/article">Articles</a>
+      </div>
+      <div class="nav-search-icon">
+        <i class="fas fa-search"></i>
+      </div>
+      <div class="dropdown-btn" id="nav-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>

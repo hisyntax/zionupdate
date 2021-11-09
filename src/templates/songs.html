@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'nav2.html' %}
+  <div class="welcome">
+    <h1>Songs</h1>
+  </div>
+  <div class="sermon-cat-list">
+    <!-- <h2>Song by Category</h2> -->
+    <div class="latest-songs">
+      <div class="sermon-header">
+        <h2>All Songs</h2>
+      </div>
+      <div class="songs-list">
+        {% for obj in queryset %}
+        <div class="song">
+          <div class="song-image">
+            <div class="image-cover">
+              <div class="playing-effect"></div>
+              <div class="play-effect-icon"><i class="fas fa-play"></i></div>
+            </div>
+            <img src="{{ obj.thumbnail.url }}" alt="song-image" />
+          </div>
+          <div class="song-details">
+            <p class="song-title">{{ obj.title }}</p>
+            {% for minister in obj.minister.all %}
+            <p class="song-by"><span class="b"> Artist:</span> {{ minister }}</p>
+            {% endfor %}
+          </div>
+          <div class="song-controls">
+            <div class="pause-play">
+              <div class="pause-play">
+                <button class="pause"><i class="fas fa-pause"></i></button>
+                <button class="play"><i class="fas fa-play"></i></button>
+              </div>
+            </div>
+            <div class="download">
+              <a href="{{ obj.song.url }}" download><i class="fas fa-download"></i></a>
+            </div>
+          </div>
+          <audio>
+            <source src="{{ obj.song.url }}" />
+          </audio>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="page-nav">
+    {% if queryset.has_previous %}
+    <a href="?{{ page_request_var }}={{ queryset.previous_page_number }}" class="np-button">Prev</a>
+    {% endif %}
+    <div class="current-page">{{ queryset.number }}</div>
+    {% if queryset.has_next %}
+    <a href="?{{ page_request_var }}={{ queryset.next_page_number }}" class="np-button">Next</a>
+    {% endif %}
+  </div>
+{% endblock content %}

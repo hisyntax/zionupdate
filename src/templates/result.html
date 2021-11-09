@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'nav2.html' %}
+  <div class="welcome">
+    <h1>Search Results for [ <i>{{ query }}</i> ]</h1>
+  </div>
+  <div class="search-list">
+    <!-- <div class="related-header" style="margin-bottom: 30px;">
+      <h2>Sermon</h2>
+    </div> -->
+    {% for i in sermon %}
+    <div class="search">
+      <a href="{{ i.get_absolute_url }}">
+        <h2>{{ i.title }}</h2>
+        <p>
+          {{ i.overview|truncatechars:70 }}
+        </p>
+        {% for tag in i.tag.all %}
+        <span class="result-type">{{ tag }}</span>
+        {% endfor %}
+      </a>
+      <p class="time">Thurs, 19th May, 2020</p>
+    </div>
+    {% endfor %}
+    <!-- <div class="related-header" style="margin-top: 40px; margin-bottom:30px;">
+      <h2>Song</h2>
+    </div> -->
+    {% for i in song %}
+    <div class="search">
+      <a href="{{ i.get_absolute_url }}">
+        <h2>{{ i.title }}</h2>
+        <p>
+          {{ i.overview|truncatechars:70 }}
+        </p>
+        {% for tag in i.tag.all %}
+        <span class="result-type">{{ tag }}</span>
+        {% endfor %}
+      </a>
+      <p class="time">{{ i.timestamp|timesince }} ago</p>
+    </div>
+    {% endfor %}
+    <!-- <div class="related-header" style="margin-top: 40px; margin-bottom:30px;">
+      <h2>Article</h2>
+    </div> -->
+    {% for i in article %}
+    <div class="search">
+      <a href="{{ i.get_absolute_url }}">
+        <h2>{{ i.title }}</h2>
+        <p>
+          {{ i.overview|truncatechars:250 }}
+        </p>
+        {% for tag in i.tag.all %}
+        <span class="result-type">{{ tag }}</span>
+        {% endfor %}
+      </a>
+      <p class="time">{{ i.timestamp|timesince }} ago</p>
+    </div>
+    {% endfor %}
+  </div>
+  <!-- <div class="page-nav">
+    {% if queryset.has_previous %}
+    <a href="?{{ page_request_var }}={{ queryset.previous_page_number }}" class="np-button">Prev</a>
+    {% endif %}
+    <div class="current-page">{{ queryset.number }}</div>
+    {% if queryset.has_next %}
+    <a href="?{{ page_request_var }}={{ queryset.next_page_number }}" class="np-button">Next</a>
+    {% endif %}
+  </div> -->
+{% endblock content %}
